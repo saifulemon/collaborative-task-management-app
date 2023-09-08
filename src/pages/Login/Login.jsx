@@ -1,6 +1,8 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Button, Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import app from "../../firebase/firebase.config";
 import signinImg from "../../assets/images/login.svg";
 
@@ -19,7 +21,7 @@ const Login = () => {
         navigate("/home");
       })
       .catch((error) => {
-        console.log(error.message);
+        toast(error.message);
       });
   };
 
@@ -77,6 +79,18 @@ const Login = () => {
               >
                 Login
               </Button>
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+              />
             </form>
           </div>
         </div>
