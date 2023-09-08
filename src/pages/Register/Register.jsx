@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { Button, Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import app from "../../firebase/firebase.config";
+import signupImg from "../../assets/images/signup.svg";
 
 const Register = () => {
   const auth = getAuth(app);
@@ -27,15 +28,13 @@ const Register = () => {
       <div className="container py-5 h-100">
         <div className="row d-flex align-items-center justify-content-center h-100">
           <div className="col-md-8 col-lg-7 col-xl-6">
-            <Image
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-              className="img-fluid"
-              alt="Phone image"
-            />
+            <Image src={signupImg} className="img-fluid" alt="Phone image" />
           </div>
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <h2 className="text-secondary-emphasis">Sign Up</h2>
-            <p className="text-secondary">Enter details to create your account</p>
+            <p className="text-secondary">
+              Enter details to create your account
+            </p>
             <form onSubmit={handleReg}>
               {/*  Name input */}
               <div className="form-outline mb-4">
@@ -70,7 +69,15 @@ const Register = () => {
               </div>
 
               <div className="mb-2">
-                <span className="fs-6 fw-light">Already Registered?  <a className="text-decoration-none fw-normal text-primary" href="/login">Login</a></span>
+                <span className="fs-6 fw-light">
+                  Already Registered?{" "}
+                  <a
+                    className="text-decoration-none fw-normal text-primary"
+                    href="/login"
+                  >
+                    Login
+                  </a>
+                </span>
               </div>
 
               {/* Submit button */}
